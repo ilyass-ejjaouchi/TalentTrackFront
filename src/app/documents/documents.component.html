@@ -1,0 +1,10 @@
+<div class="ui cards">
+  <div class="card" *ngFor="let document of documents">
+    <div class="content">
+      <div class="header">{{ document.title }}</div>
+      <div class="description">
+        Number: {{ document.count }}
+      </div>
+    </div>
+  </div>
+</div>

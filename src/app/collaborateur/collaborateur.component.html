@@ -1,0 +1,40 @@
+<div class="ui container">
+  <div class="search-container">
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt full-width" type="text" placeholder="Rechercher des collaborateurs...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+    <button class="ui primary button mini addCollab" (click)="ajouterCollaborateur()">
+      Ajouter un collaborateur
+    </button>
+  </div>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th class="head">Collaborateurs</th>
+      <th class="head">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let personne of personnes">
+      <td>
+        <div>{{ personne.nom }} {{ personne.prenom }}</div>
+        <div>{{ personne.titre }}</div>
+        <div>{{ personne.diplome }}</div>
+      </td>
+      <td>
+        <i class="edit icon action"></i>
+        <i class="delete icon action" (click)="confirmDelete(personne)"></i>
+        <i class="eye icon action"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+  <button class="ui primary button mini addCollab" >
+    Télécharger
+  </button>
+</div>
+

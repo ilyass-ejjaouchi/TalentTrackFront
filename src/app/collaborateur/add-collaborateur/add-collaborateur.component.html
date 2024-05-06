@@ -1,0 +1,41 @@
+<div class="ui form">
+  <h4 class="ui dividing header">Informations du collaborateur</h4>
+  <div class="field">
+    <div class="two fields">
+      <div class="field">
+        <label>Nom</label>
+        <input type="text" name="lastName" placeholder="Nom">
+      </div>
+      <div class="field">
+        <label>Prénom</label>
+        <input type="text" name="firstName" placeholder="Prénom">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="two fields">
+      <div class="field">
+        <label>Matricule</label>
+        <input type="text" name="matricule" placeholder="Matricule">
+      </div>
+      <div class="field">
+        <label>Titre</label>
+        <input type="text" name="titre" placeholder="Titre">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Diplôme obtenu</label>
+    <input type="text" name="diplome" placeholder="Diplôme obtenu">
+  </div>
+  <div class="field">
+    <label>Établissement d’obtention</label>
+    <input type="text" name="etablissement" placeholder="Établissement d’obtention">
+  </div>
+  <div class="field">
+    <label>Tâches R&D</label>
+    <textarea name="taches" placeholder="Tâches R&D"></textarea>
+  </div>
+  <button class="ui button">Modifier</button>
+  <button class="ui button" (click)="fermer()">Fermer</button>
+</div>

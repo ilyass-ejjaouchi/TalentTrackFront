@@ -1,0 +1,25 @@
+/* document.component.css */
+.ui.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ui.card {
+  width: 325px;
+  margin: 20px;
+}
+
+.ui.card .content {
+  padding: 20px;
+}
+
+.ui.card .header {
+  font-size: 20px;
+  font-family: Trirong;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.ui.card .description {
+  font-size: 16px;
+}

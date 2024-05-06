@@ -1,0 +1,40 @@
+.ui.container {
+  margin-top: 20px;
+}
+.ui.search {
+  margin-bottom: 20px;
+}
+.ui.button {
+  margin-bottom: 20px;
+}
+.addCollab{
+  background-color: #22427C !important;
+}
+.full-width {
+   width: 100%;
+ }
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.ui.search {
+  flex-grow: 1;
+}
+.action{
+  margin-right: 10px;
+  cursor: pointer;
+}
+.head {
+  background-color: #22427C !important;
+  color: white !important;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
