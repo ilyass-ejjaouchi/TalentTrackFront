@@ -1,0 +1,33 @@
+.container{
+  margin-top: 5%;
+}
+.ui.segment {
+  padding: 1em;
+  width: 80%;
+}
+
+.ui.header {
+  margin: 0.5em 0;
+}
+
+.ui.button {
+  margin-right: 1em;
+}
+
+.edit.icon,
+.close.icon,
+.download.icon {
+  margin-left: 1em;
+}
+
+.insert{
+  background-color: #22427C !important;
+}
+.upload{
+  background-color: #00CBCA !important;
+}
+.action{
+  margin-right: 10px;
+  cursor: pointer;
+  color: #22427C;
+}

@@ -1,0 +1,7 @@
+<div class="ui container">
+  <h2>{{ projet.intitule }}</h2>
+  <p>{{ projet.description }}</p>
+
+  <h3>Collaborateurs attachés :</h3>
+  <app-collaborateur [personnes]="projet.users" [detailsMode]="true"></app-collaborateur>
+</div>

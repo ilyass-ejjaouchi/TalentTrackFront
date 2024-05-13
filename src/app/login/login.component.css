@@ -15,10 +15,9 @@
   margin-top: 10%;
 }
 .login-button {
-  width: 675px;
-  height: 110px;
-  background-color: #9e9fa2;
-  color: #22427C;
+  padding: 20px;
+  background-color: #cecfd2;
+  color: #050505;
   border: none;
   display: flex;
   align-items: center;
@@ -28,4 +27,12 @@
 }
 .login-button img {
   margin-right: 10px;
+}
+.login{
+  background-color: #22427C;
+  color: white;
+}
+.logo{
+  width: 30px;
+  height: 30px;
 }

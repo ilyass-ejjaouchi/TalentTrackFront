@@ -1,10 +1,25 @@
-<div class="ui cards">
-  <div class="card" *ngFor="let document of documents">
-    <div class="content">
-      <div class="header">{{ document.title }}</div>
-      <div class="description">
-        Number: {{ document.count }}
+<div class="ui grid">
+  <div class="row">
+    <div class="column sixteen wide">
+      <div class="ui cards documents" *ngIf="documents; else noDocuments">
+        <div class="card" *ngFor="let document of documents | keyvalue" (click)="selectDocument(document)">
+          <div class="content">
+            <div class="header">{{ document.key }}</div>
+            <div class="description">
+              Number: {{ document.value }}
+            </div>
+          </div>
+        </div>
       </div>
+
+      <ng-template #noDocuments>
+        <div class="ui message centered">
+          <div class="header">
+            Aucun document disponible pour le moment.
+          </div>
+          <p>Veuillez patienter que les collaborateurs et les stagiaires téléchargent des fichiers pour les voir ici.</p>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

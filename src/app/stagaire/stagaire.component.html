@@ -1,0 +1,52 @@
+<div class="ui container">
+  <div class="search-container">
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt full-width" type="text" placeholder="Rechercher des stagiaires..." (keyup)="searchStagiaire()" [(ngModel)]="searchTerm">
+        <i class="search icon" (click)="searchStagiaire()"></i>
+      </div>
+    </div>
+    <button class="ui primary button mini addCollab" *ngIf="!detailsMode" (click)="ajouterStagiaire()">
+      Ajouter un stagiaire
+    </button>
+  </div>
+  <ng-container *ngIf="personnes?.length === 0; else hasStagiaires">
+    <div class="ui message">
+      <div class="header">
+        Aucun stagiaire disponible.
+      </div>
+      <p>Veuillez ajouter un nouveau stagiaire en cliquant sur "Ajouter un stagiaire".</p>
+    </div>
+  </ng-container>
+
+  <ng-template #hasStagiaires>
+    <table class="ui celled table">
+      <thead>
+      <tr>
+        <th class="head">Stagiaires</th>
+        <th class="head">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let personne of personnes">
+        <td>
+          <div>{{ personne.nom }} {{ personne.prenom }}</div>
+          <div>{{ personne.titre }}</div>
+          <div>{{ personne.diplome }}</div>
+        </td>
+        <td>
+          <i class="eye icon action" (click)="viewDetails(personne)"></i>
+          <i class="edit icon action" (click)="editDetails(personne)"></i>
+          <i class="delete icon action" (click)="confirmRemoveAccess(personne)"></i>
+          <i class="check icon action" (click)="confirmGiveAccess(personne)"></i>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <br/>
+  <button class="ui primary button mini addCollab" (click)="downloadStagiaires()">
+    Télécharger
+  </button>
+</div>

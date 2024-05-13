@@ -1,7 +1,19 @@
 <div class="spa-container">
   <div class="spa-title">SPA</div>
   <button class="login-button">
-    <img src="assets/windows-logo.png" alt="Windows Logo" />
+    <img src="assets/microsoft.png" class="logo" alt="Windows Logo" />
     Se connecter avec Windows (Azure AD)
   </button>
+  <br/>
+  <form class="ui form" id="login-form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label>Email</label>
+      <input type="text" name="email" [(ngModel)]="formData.email" placeholder="Email">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="formData.password" placeholder="Password">
+    </div>
+    <button class="ui button mini login" type="submit">Login</button>
+  </form>
 </div>

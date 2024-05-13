@@ -1,21 +1,23 @@
 <nav class="navbar">
   <img src="assets/logo.png" alt="Logo" class="logo">
   <ul class="nav-links">
-    <li><a routerLink="/documents">Documents</a></li>
-    <li><a routerLink="/projets">Projets</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">Personnes</a>
+    <li *ngIf="authService.isColaborateur() || authService.isStagaire()"><a routerLink="/upload" >Documents</a></li>
+    <li *ngIf="authService.isAdmin()"><a routerLink="/documents" >Documents</a></li>
+    <li class="dropdown" *ngIf="authService.isAdmin()"><a routerLink="/projets">Projets</a></li>
+    <li class="dropdown" *ngIf="authService.isAdmin()">
+      <a routerLink="/collaborateur" class="dropdown-toggle">Personnes</a>
       <ul class="dropdown-menu">
-        <li><a routerLink="/stagiaire">Stagiaire</a></li>
-        <li><a routerLink="/collaborateur">Collaborateur</a></li>
+        <li class="drop"><a routerLink="/stagiaire">Stagiaire</a></li>
+        <li class="drop"><a routerLink="/collaborateur">Collaborateur</a></li>
       </ul>
     </li>
   </ul>
   <div class="nav-icons">
-    <i class="fas fa-bell icon-notifications"></i>
+    <i class="bell icon icon-notifications" *ngIf="authService.isAdmin()" routerLink="/notification"></i>
     <span class="icon-space"></span>
-    <i class="fas fa-user icon-user"></i>
+    <i class="user icon icon-user" routerLink="/my-profile"></i>
     <span class="icon-space"></span>
+    <i class="sign-out icon" (click)="logout()"></i>
   </div>
   <div class="user-profile">
   </div>

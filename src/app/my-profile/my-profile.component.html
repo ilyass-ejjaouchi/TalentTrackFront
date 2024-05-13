@@ -1,0 +1,57 @@
+<div *ngIf="profileForm">
+  <div class="ui container profile">
+    <div class="ui segment">
+      <div class="ui form">
+        <div class="ui centered grid">
+          <div class="row">
+            <div class="column center aligned">
+              <i class="user outline icon huge"></i>
+            </div>
+          </div>
+        </div>
+        <hr/>
+
+        <form [formGroup]="profileForm" (ngSubmit)="sauvegarder()">
+          <div class="fields">
+            <div class="four wide field">
+              <label>Nom de famille</label>
+              <input type="text" formControlName="nom" placeholder="Nom de famille">
+              <div *ngIf="profileForm.get('nom')?.invalid && profileForm.get('nom')?.touched" class="ui pointing red basic label">Le nom de famille est requis</div>
+            </div>
+            <div class="four wide field">
+              <label>Prénom</label>
+              <input type="text" formControlName="prenom" placeholder="Prénom">
+              <div *ngIf="profileForm.get('prenom')?.invalid && profileForm.get('prenom')?.touched" class="ui pointing red basic label">Le prénom est requis</div>
+            </div>
+            <div class="four wide field">
+              <label>Matricule</label>
+              <input type="text" formControlName="matricule" placeholder="Matricule">
+              <div *ngIf="profileForm.get('matricule')?.invalid && profileForm.get('matricule')?.touched" class="ui pointing red basic label">Le matricule est requis</div>
+            </div>
+            <div class="four wide field">
+              <label>Titre au sein de l’entreprise</label>
+              <input type="text" formControlName="titre" placeholder="Titre au sein de l’entreprise">
+              <div *ngIf="profileForm.get('titre')?.invalid && profileForm.get('titre')?.touched" class="ui pointing red basic label">Le titre est requis</div>
+            </div>
+          </div>
+
+          <div class="fields">
+            <div class="eleven wide field">
+              <label>Nom d’utilisateur</label>
+              <input type="text" formControlName="email" placeholder="Nom d’utilisateur">
+              <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="ui pointing red basic label">Le nom d'utilisateur est requis</div>
+            </div>
+            <div class="field">
+              <label>Sélectionner le projet</label>
+              <select name="projectId" formControlName="projectId">
+                <option *ngFor="let project of projects" [value]="project.id">{{ project.intitule }}</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="ui primary button mini save" type="submit" [disabled]="profileForm?.invalid">Sauvegarder</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="ui form mini container">
+
+  <div class="ui dimmer" [ngClass]="{ active: loading }">
+    <div class="ui text loader">Envoi en cours...</div>
+  </div>
+
+  <div class="field">
+    <label>Rechercher des collaborateurs ou stagiaires</label>
+    <div class="ui action input">
+      <input type="text" placeholder="Rechercher..." [(ngModel)]="searchTerm">
+      <button class="ui button mini" (click)="searchUsers()">Rechercher</button>
+    </div>
+  </div>
+  <div class="field">
+    <label>Sélectionner des collaborateurs ou stagiaires</label>
+    <div class="ui divided selection list">
+      <div class="item" *ngFor="let user of users">
+        <div class="content">
+          <div class="header">{{ user.nom }} {{ user.prenom }}</div>
+        </div>
+        <div class="right floated content">
+          <div class="ui checkbox">
+            <input type="checkbox" [(ngModel)]="user.selected" (change)="selectUser(user)">
+            <label></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Message</label>
+    <textarea rows="3" placeholder="Saisir votre message..." [(ngModel)]="message"></textarea>
+  </div>
+  <button class="ui button primary mini send" (click)="sendEmail()">Envoyer l'e-mail</button>
+</div>

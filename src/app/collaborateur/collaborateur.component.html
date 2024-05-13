@@ -2,39 +2,51 @@
   <div class="search-container">
     <div class="ui search">
       <div class="ui icon input">
-        <input class="prompt full-width" type="text" placeholder="Rechercher des collaborateurs...">
-        <i class="search icon"></i>
+        <input class="prompt full-width" type="text" placeholder="Rechercher des collaborateurs..." (keyup)="searchCollab()" [(ngModel)]="searchTerm">
+        <i class="search icon" (click)="searchCollab()"></i>
       </div>
     </div>
-    <button class="ui primary button mini addCollab" (click)="ajouterCollaborateur()">
+    <button class="ui primary button mini addCollab" *ngIf="!detailsMode" (click)="ajouterCollaborateur()">
       Ajouter un collaborateur
     </button>
   </div>
-  <table class="ui celled table">
-    <thead>
-    <tr>
-      <th class="head">Collaborateurs</th>
-      <th class="head">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let personne of personnes">
-      <td>
-        <div>{{ personne.nom }} {{ personne.prenom }}</div>
-        <div>{{ personne.titre }}</div>
-        <div>{{ personne.diplome }}</div>
-      </td>
-      <td>
-        <i class="edit icon action"></i>
-        <i class="delete icon action" (click)="confirmDelete(personne)"></i>
-        <i class="eye icon action"></i>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <ng-container *ngIf="personnes?.length === 0; else hasCollaborateurs">
+    <div class="ui message">
+      <div class="header">
+        Aucun collaborateur disponible.
+      </div>
+      <p>Veuillez ajouter un nouveau collaborateur en cliquant sur "Ajouter un collaborateur".</p>
+    </div>
+  </ng-container>
+
+  <ng-template #hasCollaborateurs>
+    <table class="ui celled table">
+      <thead>
+      <tr>
+        <th class="head">Collaborateurs</th>
+        <th class="head">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let personne of personnes">
+        <td>
+          <div>{{ personne.nom }} {{ personne.prenom }}</div>
+          <div>{{ personne.titre }}</div>
+          <div>{{ personne.diplome }}</div>
+        </td>
+        <td>
+          <i class="eye icon action" (click)="viewDetails(personne)"></i>
+          <i class="edit icon action" (click)="editDetails(personne)"></i>
+          <i class="delete icon action" (click)="confirmRemoveAccess(personne)"></i>
+          <i class="check icon action" (click)="confirmGiveAccess(personne)"></i>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
   <br/>
-  <button class="ui primary button mini addCollab" >
+  <button class="ui primary button mini addCollab" (click)="downloadUsers()">
     Télécharger
   </button>
 </div>
-

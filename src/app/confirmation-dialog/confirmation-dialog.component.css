@@ -1,0 +1,30 @@
+.button-group {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.oui {
+  background-color: #22427C !important;
+  color: white !important;
+}
+
+.oui:hover {
+  background-color: #22427C !important;
+  color: white !important;
+}
+.non {
+  background-color: #00CBCA !important;
+  color: white !important;
+}
+
+.non:hover {
+  background-color: #00CBCA !important;
+  color: white !important;
+}
+.button-group {
+  text-align: right;
+  margin-top: 10px;
+}
+.confirmation{
+  margin: 20px;
+}

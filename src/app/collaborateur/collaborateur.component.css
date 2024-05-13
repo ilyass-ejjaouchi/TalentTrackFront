@@ -38,3 +38,6 @@ tbody tr:nth-child(odd) {
   background-color: white;
 }
 
+.icon{
+  cursor: pointer;
+}

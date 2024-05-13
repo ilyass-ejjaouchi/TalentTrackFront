@@ -1,0 +1,15 @@
+<div class="ui form mini manage">
+  <h4 class="ui dividing header">{{ project ? 'Modifier le projet' : 'Ajouter un projet' }}</h4>
+  <div class="field">
+    <label>Intitulé</label>
+    <input type="text" name="intitule" [(ngModel)]="intitule">
+  </div>
+  <div class="field">
+    <label>Description</label>
+    <textarea name="description" [(ngModel)]="description"></textarea>
+  </div>
+  <div class="button-group">
+    <button class="ui button mini save" (click)="saveProject()">{{ project ? 'Modifier' : 'Enregistrer' }}</button>
+    <button class="ui button mini annuler" (click)="cancel()">Annuler</button>
+  </div>
+</div>

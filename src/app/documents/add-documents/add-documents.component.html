@@ -1,0 +1,43 @@
+<div class="ui container">
+  <h2 class="ui header">Upload document</h2>
+  <div class="ui divided selection list">
+    <div class="item">
+      <select class="ui dropdown" [(ngModel)]="selectedDocumentType">
+        <option value="">Select Document Type</option>
+        <option value="CONVENTION_DE_STAGE">Convention de stage</option>
+        <option value="ATTESTATION_DE_REUSSITE">Attestation de réussite</option>
+        <option value="CONTRAT_DE_TRAVAIL">Contrat de travail</option>
+        <option value="DIPLOME">Diplôme</option>
+        <option value="CURRICULUM_VITAE">Curriculum Vitae</option>
+      </select>
+    </div>
+    <div class="item">
+      <input type="file" id="fileInput" style="display: none;" (change)="onFileSelected($event)">
+      <button class="ui blue button mini" (click)="openFilePicker()">Insérer</button>
+      <span id="fileName">{{ selectedFileName }}</span>
+    </div>
+    <div class="item">
+      <button class="ui green button mini upload" (click)="uploadFileToServer()" [disabled]="!selectedFileName || !selectedDocumentType">Upload</button>
+    </div>
+  </div>
+  <h2 class="ui header">Uploaded Documents</h2>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Document Type</th>
+      <th>File Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of userDocuments">
+      <td>{{ document.type }}</td>
+      <td>{{ document.nom }}</td>
+      <td>
+        <i class="trash icon action" (click)="deleteDocument(document.id)"></i>
+        <i class="eye icon action" (click)="viewDocument(document.id)"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

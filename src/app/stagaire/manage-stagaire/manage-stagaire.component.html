@@ -1,0 +1,63 @@
+<div class="ui form mini infos">
+  <h4 class="ui dividing header">Informations du stagiaire</h4>
+  <form [formGroup]="stagiaireForm" (ngSubmit)="ajouterStagiaire()">
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Nom</label>
+          <input type="text" name="nom" formControlName="nom" [readonly]="readOnly">
+        </div>
+        <div class="field">
+          <label>Prénom</label>
+          <input type="text" name="prenom" formControlName="prenom" [readonly]="readOnly">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Matricule</label>
+          <input type="text" name="matricule" formControlName="matricule" [readonly]="readOnly"
+                 class="ui input" matTooltip="Votre matricule d'entreprise">
+        </div>
+        <div class="field">
+          <label>Titre</label>
+          <input type="text" name="titre" formControlName="titre" [readonly]="readOnly">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Diplôme obtenu</label>
+      <input type="text" name="diplome" formControlName="diplome" [readonly]="readOnly">
+    </div>
+    <div class="field">
+      <label>Établissement d’obtention</label>
+      <input type="text" name="etablissement" formControlName="etablissement" [readonly]="readOnly">
+    </div>
+    <div class="field">
+      <label>Tâches R&D</label>
+      <textarea name="descriptionTaches" formControlName="descriptionTaches" [readonly]="readOnly"></textarea>
+    </div>
+    <div class="field" *ngIf="addMode">
+      <label>Email</label>
+      <input type="email" name="email" formControlName="email" [readonly]="readOnly">
+    </div>
+    <div class="field" *ngIf="addMode">
+      <label>Mot de passe</label>
+      <input type="password" name="password" formControlName="password" [readonly]="readOnly">
+    </div>
+    <div class="field">
+      <label>Sélectionner le projet</label>
+      <select name="projectId" formControlName="projectId" [disabled]="readOnly">
+        <option *ngFor="let projet of projets" [ngValue]="projet.id">{{ projet.intitule }}</option>
+      </select>
+    </div>
+    <div class="button-group">
+      <button class="ui button modifier mini" *ngIf="!addMode && !readOnly; else addModeButton" type="submit">Modifier</button>
+      <ng-template #addModeButton>
+        <button class="ui button modifier mini" type="submit" *ngIf="!readOnly">Ajouter</button>
+      </ng-template>
+      <button class="ui button mini annuler" type="button" (click)="fermer()">Fermer</button>
+    </div>
+  </form>
+</div>

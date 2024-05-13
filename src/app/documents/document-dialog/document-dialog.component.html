@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Documents</h2>
+<div mat-dialog-content>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Nom</th>
+      <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of documents">
+      <td><input type="checkbox" [(ngModel)]="document.selected"></td>
+      <td>{{ document.nom }}</td>
+      <td>{{ document.type }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button class="ui primary button mini cancel" (click)="dialogRef.close()">Cancel</button>
+  <button class="ui primary button mini download" (click)="downloadDocuments()">Download</button>
+</div>

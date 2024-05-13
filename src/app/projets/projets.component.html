@@ -1,0 +1,46 @@
+<div class="ui container">
+  <div class="search-container">
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt full-width" type="text" placeholder="Rechercher des projets...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+    <button class="ui primary button mini addProject" (click)="ajouterProjet()">
+      Ajouter un projet
+    </button>
+  </div>
+
+  <ng-container *ngIf="projets.length > 0; else noProjects">
+    <table class="ui celled table">
+      <thead>
+      <tr>
+        <th class="head">Intitulé</th>
+        <th class="head">Description</th>
+        <th class="head">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let projet of projets">
+        <td>{{ projet.intitule }}</td>
+        <td>{{ projet.description }}</td>
+        <td>
+          <i class="eye icon action" (click)="viewDetails(projet)"></i>
+          <i class="edit icon action" (click)="editDetails(projet)"></i>
+          <i class="delete icon action" (click)="delete(projet)"></i>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- Message to display when no projects are available -->
+  <ng-template #noProjects>
+    <div class="ui message">
+      <div class="header">
+        Aucun projet disponible.
+      </div>
+      <p>Veuillez ajouter un nouveau projet en cliquant sur "Ajouter un projet".</p>
+    </div>
+  </ng-template>
+</div>

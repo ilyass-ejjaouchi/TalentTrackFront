@@ -2,6 +2,8 @@
 .ui.cards {
   display: flex;
   flex-wrap: wrap;
+  margin: 5%;
+  cursor: pointer;
 }
 
 .ui.card {
@@ -22,4 +24,7 @@
 
 .ui.card .description {
   font-size: 16px;
+}
+.message{
+  margin: 10% !important;
 }

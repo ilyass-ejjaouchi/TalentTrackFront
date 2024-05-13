@@ -1,0 +1,9 @@
+.download{
+  background-color: #22427C !important;
+}
+.cancel{
+  background-color: #00CBCA !important;
+}
+.ui.table td,.ui.table th{
+  font-size: small;
+}

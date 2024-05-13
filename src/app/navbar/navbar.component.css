@@ -33,6 +33,7 @@
 
 .nav-icons .icon-notifications,
 .nav-icons .icon-user,
+.nav-icons .sign-out,
 .nav-icons .icon-search {
   color: #22427C;
   cursor: pointer;
@@ -66,4 +67,7 @@
 }
 .icon-space {
   margin-left: 10px;
+}
+.drop{
+  margin-top: 10px;
 }
